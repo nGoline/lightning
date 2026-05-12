@@ -3208,6 +3208,16 @@ impl From<responses::ListconfigsConfigsExperimentalshutdownwrongfunding> for pb:
 }
 
 #[allow(unused_variables)]
+impl From<responses::ListconfigsConfigsExperimentalsimpleclose> for pb::ListconfigsConfigsExperimentalsimpleclose {
+    fn from(c: responses::ListconfigsConfigsExperimentalsimpleclose) -> Self {
+        Self {
+            set: c.set, // Rule #2 for type boolean
+            source: c.source, // Rule #2 for type string
+        }
+    }
+}
+
+#[allow(unused_variables)]
 impl From<responses::ListconfigsConfigsExperimentalsplicing> for pb::ListconfigsConfigsExperimentalsplicing {
     fn from(c: responses::ListconfigsConfigsExperimentalsplicing) -> Self {
         Self {
@@ -3646,6 +3656,7 @@ impl From<responses::ListconfigsConfigs> for pb::ListconfigsConfigs {
             experimental_onion_messages: c.experimental_onion_messages.map(|v| v.into()),
             experimental_peer_storage: c.experimental_peer_storage.map(|v| v.into()),
             experimental_shutdown_wrong_funding: c.experimental_shutdown_wrong_funding.map(|v| v.into()),
+            experimental_simple_close: c.experimental_simple_close.map(|v| v.into()),
             experimental_splicing: c.experimental_splicing.map(|v| v.into()),
             fee_base: c.fee_base.map(|v| v.into()),
             fee_per_satoshi: c.fee_per_satoshi.map(|v| v.into()),
